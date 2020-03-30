@@ -12,7 +12,7 @@ async function run() {
         const octokit = new github.GitHub(thisToken);
         // get comment
         const thisComment = github.context.payload['comment']['body'];
-        if (comment.startsWith('inviteme!')) {
+        if (thisComment.startsWith('inviteme!')) {
             /* begin core invitation logic */
             // TODO: add support for mentioning a different user
             // determine variable values
