@@ -1,4 +1,4 @@
-name: 'InviteMe!'
+name: 'InvitationExpress'
 description: 'Add a new collaborator to a repository automagically.'
 runs:
   using: 'node13'
