@@ -21,6 +21,8 @@ async function run() {
             let thisOwner = github.context.payload['repository']['owner']['name'];
             let thisIssueNumber = github.context.payload['issue']['number'];
             let thisPermission = null;
+            console.log('Parsed event values:\n\tRepo: ' + thisRepo + '\n\tUsername of commenter: ' + 
+                        thisUsername + '\n\tRepo Owner: ' + thisOwner + '\n\tIssue number: ' + thisIssueNumber);
             // get response for addCollaborator call
             const { data: addedCollaborator } = await octokit.repos.addCollaborator({
                 owner: thisOwner,
