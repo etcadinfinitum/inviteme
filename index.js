@@ -5,7 +5,11 @@ async function run() {
     try {
         // create Octokit client
         const thisToken = core.getInput('INVITATION_TOKEN');
-        const octokit = new github.GitHub(token: thisToken);
+        if (!thistoken) {
+            console.log('ERROR: Token was not retrieved correctly and is falsy.');
+            core.setFailed('Error: token was not correctly interpreted');
+        }
+        const octokit = new github.GitHub(thisToken);
         // get comment
         const thisComment = github.context.payload['comment']['body'];
         if (comment.startsWith('inviteme!')) {
