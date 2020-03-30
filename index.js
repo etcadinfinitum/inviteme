@@ -5,7 +5,7 @@ async function run() {
     try {
         // create Octokit client
         const thisToken = core.getInput('INVITATION_TOKEN');
-        if (!thistoken) {
+        if (!thisToken) {
             console.log('ERROR: Token was not retrieved correctly and is falsy.');
             core.setFailed('Error: token was not correctly interpreted');
         }
