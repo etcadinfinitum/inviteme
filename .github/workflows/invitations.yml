@@ -1,4 +1,4 @@
-name: InviteMe to collaborate on code
+name: InvitationExpress
 on:
   issue_comment:
     types: [created]
