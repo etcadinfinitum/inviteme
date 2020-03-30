@@ -4,7 +4,7 @@ const github = require('@actions/github');
 async function run() {
     try {
         // create Octokit client
-        const thisToken = core.getInput('INVITATION_TOKEN');
+        const thisToken = process.env.INVITATION_TOKEN;
         if (!thisToken) {
             console.log('ERROR: Token was not retrieved correctly and is falsy.');
             core.setFailed('Error: token was not correctly interpreted');
