@@ -43,7 +43,7 @@ async function run() {
             console.log('User comment is not an invitation request. Exiting.');
         }
     } catch (error) {
-        console.log('ERROR: ' + error.message);
+        console.log('ERROR: ' + error.message + ' occurred at ' + error.fileName + ':' + error.lineNumber);
         core.setFailed(error.message);
     }
 }
