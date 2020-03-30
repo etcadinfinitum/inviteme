@@ -33,6 +33,7 @@ Set up [branch protection policies](https://help.github.com/en/github/administer
 
 ## Future Work
 
+* Allow users to mention other users to request an invitation for
 * Enable collaboration access for organization teams
 * Specify collaborator permissions for organization repositories
 * Support for approval mechanisms by repository administrators
