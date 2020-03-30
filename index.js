@@ -20,7 +20,7 @@ async function run() {
             // determine variable values
             let thisRepo = github.context.payload['repository']['name'];    // e.g. 'inviteme'
             let thisUsername = github.context.payload['comment']['user']['login'];  // e.g. 'etcadinfinitum'
-            let thisOwner = github.context.payload['repository']['owner']['name'];
+            let thisOwner = github.context.payload['repository']['owner']['login'];
             let thisIssueNumber = github.context.payload['issue']['number'];
             let thisPermission = null;
             console.log('Parsed event values:\n\tRepo: ' + thisRepo + '\n\tUsername of commenter: ' + 
