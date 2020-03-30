@@ -29,11 +29,13 @@ async function run() {
             const { data: addedCollaborator } = await octokit.repos.addCollaborator({
                 owner: thisOwner,
                 repo: thisRepo,
-                username: thisUsername
+                username: thisUsername,
             });
             // more variable values
             let thisInviteLink = addedCollaborator['html_url'];
-            let thisBody = '@' + username + ' ' + invite_link;
+            let thisBody = '@' + thisUsername + ' ' + thisInviteLink;
+            console.log('Parsed added collaborator values:\n\tInvite link: ' + thisInviteLink + 
+                        '\n\tNew comment body: ' + thisBody);
             // comment on issue with invitation link for repo
             const { data: commentResponse } = await octokit.issues.createComment({
                 owner: thisOwner,
