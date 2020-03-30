@@ -1,0 +1,8 @@
+name: 'InviteMe!'
+description: 'Add a new collaborator to a repository automagically.'
+runs:
+  using: 'node13'
+  main: 'index.js'
+branding:
+  color: 'purple'
+  icon: 'user-plus'

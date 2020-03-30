@@ -1,0 +1,25 @@
+{
+  "name": "inviteme",
+  "version": "1.0.0",
+  "description": "GitHub Actions tool for making wide-spread collaboration easier. Built for https://githubhackathon.com/.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etcadinfinitum/inviteme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/etcadinfinitum/inviteme/issues"
+  },
+  "homepage": "https://github.com/etcadinfinitum/inviteme#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1",
+    "@octokit/rest": "^17.1.4"
+  }
+}
