@@ -1,7 +1,7 @@
 name: 'InvitationExpress'
 description: 'Add a new collaborator to a repository automagically.'
 runs:
-  using: 'node13'
+  using: 'node12'
   main: 'index.js'
 branding:
   color: 'purple'
