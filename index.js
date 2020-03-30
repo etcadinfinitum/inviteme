@@ -4,8 +4,8 @@ const github = require('@actions/github');
 async function run() {
     try {
         // create Octokit client
-        const token = core.getInput('INVITATION_TOKEN');
-        const octokit = new github.GitHub(token);
+        const thisToken = core.getInput('INVITATION_TOKEN');
+        const octokit = new github.GitHub(token: thisToken);
         // get comment
         const thisComment = github.context.payload['comment']['body'];
         if (comment.startsWith('inviteme!')) {
