@@ -24,6 +24,15 @@ async function run() {
             let thisPermission = null;
             console.log('Parsed event values:\n\tRepo: ' + thisRepo + '\n\tUsername of commenter: ' + 
                         thisUsername + '\n\tRepo Owner: ' + thisOwner + '\n\tIssue number: ' + thisIssueNumber);
+            // add hook to handle empty response body
+            octokit.hook.after("request", async (response, options) => {
+                console.log(`${options.method} ${options.url}: ${response.status}`);
+                if (response.status == 204) {
+                    // response has no body; log this info and return
+                    console.log('User is already a collaborator; exiting.');
+                    return;
+                }
+            });
             // get response for addCollaborator call
             const { data: addedCollaborator } = await octokit.repos.addCollaborator({
                 owner: thisOwner,
