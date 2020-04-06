@@ -30,6 +30,7 @@ async function run() {
                 repo: thisRepo,
                 username: thisUsername,
             });
+            console.log(addedCollaborator);
             // more variable values
             let thisInviteLink = addedCollaborator['html_url'];
             let thisBody = '@' + thisUsername + ' ' + thisInviteLink;
