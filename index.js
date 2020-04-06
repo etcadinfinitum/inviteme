@@ -28,9 +28,9 @@ async function run() {
             octokit.hook.after("request", async (response, options) => {
                 console.log(`${options.method} ${options.url}: ${response.status}`);
                 if (response.status == 204) {
-                    // response has no body; log this info and return
+                    // response has no body; log this info and exit
                     console.log('User is already a collaborator; exiting.');
-                    return;
+                    process.exit(0);
                 }
             });
             // get response for addCollaborator call
