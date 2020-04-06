@@ -13,7 +13,7 @@ async function run() {
         // get comment
         const thisComment = github.context.payload['comment']['body'];
         const thisCommentLower = thisComment.toLowerCase();
-        if (thisCommentLower.startsWith('inviteme') || thisCommentLower.startsWith('invite me') {
+        if (thisCommentLower.startsWith('inviteme') || thisCommentLower.startsWith('invite me')) {
             /* begin core invitation logic */
             // TODO: add support for mentioning a different user
             // determine variable values
