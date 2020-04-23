@@ -62,6 +62,7 @@ async function run() {
         }
     } catch (error) {
         console.log('ERROR: ' + error.message + ' occurred at ' + error.fileName + ':' + error.lineNumber);
+        console.log('Full error: ' + error);
         core.setFailed(error.message);
     }
 }
