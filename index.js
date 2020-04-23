@@ -33,18 +33,22 @@ async function run() {
                     process.exit(0);
                 }
             });
+            /*
             // check if user is a collaborator
             const { data: checkedCollabStatus } = await octokit.repos.checkCollaborator({
                 owner: thisOwner,
                 repo: thisRepo,
                 username: thisUsername,
             });
+            console.log(checkedCollabStatus);
+            */
             // get response for addCollaborator call
             const { data: addedCollaborator } = await octokit.repos.addCollaborator({
                 owner: thisOwner,
                 repo: thisRepo,
                 username: thisUsername,
             });
+            
             // more variable values
             let thisInviteLink = addedCollaborator['html_url'];
             let thisBody = '@' + thisUsername + ' ' + thisInviteLink;
