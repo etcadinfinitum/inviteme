@@ -25,7 +25,6 @@ async function run() {
             console.log('Parsed event values:\n\tRepo: ' + thisRepo + '\n\tUsername of commenter: ' + 
                         thisUsername + '\n\tRepo Owner: ' + thisOwner + '\n\tIssue number: ' + thisIssueNumber);
             // add hook to handle empty response body
-            /*
             octokit.hook.after("request", async (response, options) => {
                 console.log(`${options.method} ${options.url}: ${response.status}`);
                 if (options.method == 'GET' && response.status == 204) {
@@ -34,7 +33,7 @@ async function run() {
                     process.exit(0);
                 }
             });
-            */
+            /*
             // check if user is a collaborator
             const { data: checkedCollabStatus } = await octokit.repos.checkCollaborator({
                 owner: thisOwner,
@@ -42,12 +41,14 @@ async function run() {
                 username: thisUsername,
             });
             console.log(checkedCollabStatus);
+            */
             // get response for addCollaborator call
             const { data: addedCollaborator } = await octokit.repos.addCollaborator({
                 owner: thisOwner,
                 repo: thisRepo,
                 username: thisUsername,
             });
+            
             // more variable values
             let thisInviteLink = addedCollaborator['html_url'];
             let thisBody = '@' + thisUsername + ' ' + thisInviteLink;
