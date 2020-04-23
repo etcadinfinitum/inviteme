@@ -26,8 +26,8 @@ async function run() {
                         thisUsername + '\n\tRepo Owner: ' + thisOwner + '\n\tIssue number: ' + thisIssueNumber);
             // add hook to handle empty response body
             octokit.hook.after("request", async (response, options) => {
-                console.log("Request options:\n" + options);
-                console.log("Request response:\n" + response);
+                console.log("Request options:\n" + JSON.stringify(options));
+                console.log("Request response:\n" + JSON.stringify(response));
                 console.log(`${options.method} ${options.url}: ${response.status}`);
                 if (options.method == 'GET' && response.status == 204) {
                     // response has no body; log this info and exit
