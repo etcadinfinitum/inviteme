@@ -24,17 +24,6 @@ async function run() {
             let thisPermission = null;
             console.log('Parsed event values:\n\tRepo: ' + thisRepo + '\n\tUsername of commenter: ' + 
                         thisUsername + '\n\tRepo Owner: ' + thisOwner + '\n\tIssue number: ' + thisIssueNumber);
-            // add hook to handle empty response body
-            octokit.hook.after("request", async (response, options) => {
-                console.log("Request options:\n" + JSON.stringify(options));
-                console.log("Request response:\n" + JSON.stringify(response));
-                console.log(`${options.method} ${options.url}: ${response.status}`);
-                if (options.method == 'GET' && response.status == 204) {
-                    // response has no body; log this info and exit
-                    console.log('User is already a collaborator; exiting.');
-                    process.exit(0);
-                }
-            });
             /*
             // check if user is a collaborator
             const { data: checkedCollabStatus } = await octokit.repos.checkCollaborator({
@@ -45,6 +34,19 @@ async function run() {
             console.log(checkedCollabStatus);
             */
             // get response for addCollaborator call
+            // add hook to handle empty response body
+            octokit.hook.after("request", async (response, options) => {
+                console.log("Request options:\n" + JSON.stringify(options));
+                console.log("Request response:\n" + JSON.stringify(response));
+                console.log(`${options.method} ${options.url}: ${response.status}`);
+                // this validation is trash, but so are the docs for the returned objects T_T
+                if (options.method == 'PUT' && response.status == 204) {
+                    // response has no body; log this info and exit
+                    console.log('User is already a collaborator; exiting.');
+                    process.exit(0);
+                }
+            });
+
             const { data: addedCollaborator } = await octokit.repos.addCollaborator({
                 owner: thisOwner,
                 repo: thisRepo,
