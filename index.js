@@ -24,6 +24,13 @@ async function run() {
             let thisPermission = null;
             console.log('Parsed event values:\n\tRepo: ' + thisRepo + '\n\tUsername of commenter: ' + 
                         thisUsername + '\n\tRepo Owner: ' + thisOwner + '\n\tIssue number: ' + thisIssueNumber);
+
+            // check to make sure commenter is not owner (gives big error energy)
+            if (thisUsername == thisOwner) {
+                console.log('Commenter is the owner of this repository; exiting.');
+                process.exit(0);
+            }
+                
             /*
             // check if user is a collaborator
             const { data: checkedCollabStatus } = await octokit.repos.checkCollaborator({
